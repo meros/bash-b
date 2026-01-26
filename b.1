@@ -1,0 +1,41 @@
+.TH B 1 "January 2026" "git-branch-selector 1.0.0" "User Commands"
+.SH NAME
+b \- interactive Git branch selector using fuzzy finding
+.SH SYNOPSIS
+.B b
+.SH DESCRIPTION
+.B b
+is an interactive Git branch selector that uses fzf (fuzzy finder) to help you
+quickly switch between Git branches. It displays recently used branches from
+git reflog with a preview of commit history.
+.PP
+The script uses git reflog to show branches you've previously checked out,
+allowing you to fuzzy search and select a branch interactively. Each branch
+is shown with a preview of its commit history including commit hashes, dates,
+messages, and authors.
+.SH DEPENDENCIES
+.TP
+.B git
+Required for Git repository operations and reflog access.
+.TP
+.B fzf
+Required for interactive fuzzy finding and branch selection.
+.SH EXAMPLES
+.TP
+Run inside any Git repository to select and checkout a branch:
+.B b
+.SH EXIT STATUS
+.TP
+.B 0
+Success - branch was selected and checked out successfully.
+.TP
+.B 1
+Error - not in a Git repository, fzf not installed, no branches found,
+no branch selected, or checkout failed.
+.SH AUTHOR
+Alexander Schrab
+.SH SEE ALSO
+.BR git (1),
+.BR git-checkout (1),
+.BR git-reflog (1),
+.BR fzf (1)

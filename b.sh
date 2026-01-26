@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # 🕵️‍♂️ Check if inside a Git repository
 if ! git rev-parse --is-inside-work-tree > /dev/null 2>&1; then
