@@ -10,11 +10,17 @@
 , gawk ? (import <nixpkgs> {}).gawk
 }:
 
-stdenv.mkDerivation rec {
+stdenv.mkDerivation {
   pname = "git-branch-selector";
   version = "1.0.0";
 
-  src = ./.;
+  src = lib.fileset.toSource {
+    root = ./.;
+    fileset = lib.fileset.unions [
+      ./b.sh
+      ./b.1
+    ];
+  };
 
   nativeBuildInputs = [ makeWrapper ];
 
