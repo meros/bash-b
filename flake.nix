@@ -21,7 +21,6 @@
         apps.default = {
           type = "app";
           program = "${git-branch-selector}/bin/b";
-          meta = git-branch-selector.meta;
         };
 
         devShells.default = pkgs.mkShell {
